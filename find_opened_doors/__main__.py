@@ -17,17 +17,17 @@ def solution(N, n):
     if n == 1:
         return N
 
-    lcd = 1
+    lcm = 1
     for i in range(1, n+1):
-        lcd = lcd*i//math.gcd(i, lcd)
+        lcm = lcm*i//math.gcd(i, lcm)
 
-    if N >= lcd:
-        mult = solution_slow(lcd, n)
+    if N >= lcm:
+        mult = solution_slow(lcm, n)
     else:
         mult = 0
-    rest = solution_slow(N % lcd, n)
+    rest = solution_slow(N % lcm, n)
 
-    return mult * (N // lcd) + rest
+    return mult * (N // lcm) + rest
 
 
 if __name__ == '__main__':
